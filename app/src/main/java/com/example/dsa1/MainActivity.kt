@@ -41,28 +41,26 @@ class MainActivity : AppCompatActivity() {
 //        )
 //        attrList.add(
 //            AttrSelectedEntity(
-//                "套餐",
+//                "大小",
 //                arrayListOf(
-//                    AttrSelectedEntity.ChildEntity("套餐一", "B1"),
-//                    AttrSelectedEntity.ChildEntity("套餐二", "B2"),
+//                    AttrSelectedEntity.ChildEntity("64G", "B1"),
+//                    AttrSelectedEntity.ChildEntity("128G", "B2"),
 //                )
 //            )
 //        )
 //        attrList.add(
 //            AttrSelectedEntity(
-//                "大小",
+//                "套餐",
 //                arrayListOf(
-//                    AttrSelectedEntity.ChildEntity("64", "C1"),
-//                    AttrSelectedEntity.ChildEntity("128", "C2"),
-//                    AttrSelectedEntity.ChildEntity("256", "C3"),
+//                    AttrSelectedEntity.ChildEntity("套餐一", "C1"),
+//                    AttrSelectedEntity.ChildEntity("套餐二", "C2"),
 //                )
 //            )
 //        )
 //        val combinationList = arrayListOf<List<String>>()
-//        combinationList.add(arrayListOf("A1","B1","C1"))
-//        combinationList.add(arrayListOf("A1","B1","C2"))
-//        combinationList.add(arrayListOf("A1","B2","C2"))
-//        combinationList.add(arrayListOf("A2","B2","C3"))
+//        combinationList.add(arrayListOf("A1", "B1", "C2"))
+//        combinationList.add(arrayListOf("A2", "B1", "C1"))
+//        combinationList.add(arrayListOf("A1", "B2", "C1"))
 
 
 //        ABC示例
