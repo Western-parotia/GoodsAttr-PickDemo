@@ -9,8 +9,11 @@ import com.example.dsa1.databinding.AdapterMainItemChildBinding
 import com.example.dsa1.ext.adapterLayoutPosition
 import com.example.dsa1.ext.selectedPosition
 
+/**
+ * @param usedOpt true使用优化版方法，false使用直接遍历
+ */
 @SuppressLint("NotifyDataSetChanged")
-class AttrTitleAdapter :
+class AttrTitleAdapter(private val usedOpt: Boolean) :
     BaseQuickAdapter<AttrSelectedEntity, BaseViewHolder>(R.layout.adapter_main_item) {
     private val combinationList = arrayListOf<List<String>>()
 
@@ -39,7 +42,7 @@ class AttrTitleAdapter :
             }
 
             //刷新属性信息
-            CombinationAttrsUtils.refreshAttrsClickState(combinationList, data)
+            refreshAttrsState(combinationList, data)
             notifyDataSetChanged()
 
             onChildClickedListener?.invoke(holder.adapterLayoutPosition, childPosition)
@@ -56,8 +59,19 @@ class AttrTitleAdapter :
     ) {
         this.combinationList.clear()
         this.combinationList.addAll(combinationList)
-        CombinationAttrsUtils.refreshAttrsClickState(combinationList, list)
+        refreshAttrsState(combinationList, list)
         super.setNewData(list)
+    }
+
+    private fun refreshAttrsState(
+        combinationList: List<List<String>>,
+        list: List<AttrSelectedEntity>
+    ) {
+        if (usedOpt) {
+            CombinationAttrsUtils.refreshAttrsClickState(combinationList, list)
+        } else {
+            CombinationAttrsUtils.refreshAttrsClickState2(combinationList, list)
+        }
     }
 
     @Deprecated("见上方重载方法", ReplaceWith("setNewData(data,list)"), level = DeprecationLevel.ERROR)
